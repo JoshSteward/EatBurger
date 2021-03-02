@@ -1,6 +1,7 @@
 // Import MySQL connection.
 const connection = require('./connection.js');
 
+/*
 // Helper function for SQL syntax to add question marks (?, ?, ?) in query
 const printQuestionMarks = (num) => {
   const arr = [];
@@ -34,23 +35,37 @@ const objToSql = (ob) => {
   // Translate array of strings to a single comma-separated string
   return arr.toString();
 };
+*/
 
 const orm = {
+    //where cb is the function being passed 
     selectAll(tableInput,cb){
-        const queryString = `SELECT * FROM ${tableInput};`
-        connection.query(queryString, (err,res) => {
+        const queryString = 'SELECT * FROM ??;'
+        connection.query(queryString, [tableInput], (err,res) => {
             if (err) {
                 throw err;
             }
             cb(res);
         });
     },
-    insertOne(){
-
+    insertOne(tableInput, colInput, burger_name, cb) {
+        const queryString = 'INSERT INTO ??(??) VALUES (??)';
+        connection.query(queryString, [tableInput, colInput, burger_name], (err,res) => {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
     },
-    updateOne(){
-
-    },
+    updateOne(table, objColVals, updatedBurger, id, cb){
+        const queryString = 'UPDATE ?? SET ?? = ? WHERE ??';
+        connection.query(queryString, [table, objColVals, updatedBurger, id], (err,res) => {
+            if (err) {
+                throw err;
+            }
+            cb(res);
+        });
+    }
 };
 
 // Export the orm object for the model
