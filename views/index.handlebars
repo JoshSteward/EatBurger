@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eat Da Burger!</title>
+    <link href="https://fonts.googleapis.com/css?family=Give+You+Glory&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+</head>
+
+<body>
+    <img class="burger" src="assets/images/burger.png">
+    <h1>Eat Da Burger Menu!</h1>
+
+    <div id="burgers-available">
+        <div class="uneaten">
+            <h3 class="available"> Delicious Available Burgers </h3>
+            
+            {{#each burgers}}
+            {{#unless devoured}}
+            {{>burger-list eaten=false}}
+            {{/unless}}
+            {{/each}}
+
+
+        </div>
+
+        <div class="eaten">
+            <h3 class="yummy"> Yummy Eaten Burgers </h3>
+            {{#each burgers}}
+            {{#if devoured}}
+            {{>burger-list eaten=true}}
+            {{/if}}
+            {{/each}}
+
+        </div>
+    </div>
+
+
+    {{!-- <form action="/" method="POST"> --}}
+    <div class="submit">
+        <textarea name="burger" id="burger"></textarea>
+        <button type="submit" id="submitBurger">Submit</button>
+        <p class="submit-text"> Enter a burger you want to eat and then click the Submit button.</p>
+
+    </div>
+    </div>
+
+</body>
+
+</html>
