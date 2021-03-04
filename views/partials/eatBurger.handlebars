@@ -1,0 +1,10 @@
+
+<div class="eatBurger">
+    <p>{{id}}.{{burger_name}}</p>
+    {{#if eaten}} {{else}}
+    <button class="change-Dev" data-id="{{id}}" class="devour" devour="{{eaten}}"> Devour Burger!</button>
+    {{/if}}
+    <button class="delete-buger" data-id="{{this.id}}">DELETE!</button>
+
+
+</div>

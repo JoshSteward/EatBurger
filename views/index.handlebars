@@ -14,38 +14,38 @@
 
     <div id="burgers-available">
         <div class="uneaten">
-            <h3 class="available"> Delicious Available Burgers </h3>
+            <h3 class="available"> Ready To Be Eaten Burgers </h3>
             
             {{#each burgers}}
             {{#unless devoured}}
-            {{>burger-list eaten=false}}
+            {{>eatBurger eaten=false}}
             {{/unless}}
             {{/each}}
 
 
         </div>
 
-        <div class="eaten">
-            <h3 class="yummy"> Yummy Eaten Burgers </h3>
+        <div class="form-group">
+            <h3 class="yummy"> These Burgers Have Been Eaten </h3>
+            <label for="devoured">Devoured</label><br>
             {{#each burgers}}
             {{#if devoured}}
-            {{>burger-list eaten=true}}
+            {{>eatBurger eaten=true}}
             {{/if}}
             {{/each}}
 
         </div>
     </div>
 
+    <h2>Add a Burger</h2>
+    <form id="create-form">
 
-    {{!-- <form action="/" method="POST"> --}}
-    <div class="submit">
-        <textarea name="burger" id="burger"></textarea>
-        <button type="submit" id="submitBurger">Submit</button>
-        <p class="submit-text"> Enter a burger you want to eat and then click the Submit button.</p>
-
-    </div>
+    <div class="form-group">
+        <label for="burg">Burger Name:</label>
+        <input type="text" id="burg" name="name">
     </div>
 
-</body>
+    <button type="submit">Add Burger</button>
+    </form>
 
-</html>
+    
