@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // Reload the page
         //add this back in when issue is solved
-        //location.reload();
+        location.reload();
       });
     });
   });
