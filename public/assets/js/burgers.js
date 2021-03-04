@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       const id = e.target.getAttribute('data-id');
 
       // Send the delete request
+      console.log("checking delete btn");
       fetch(`/api/burgers/${id}`, {
         method: 'DELETE',
       }).then((res) => {
@@ -92,7 +93,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log(`Deleted burger: ${id}`);
 
         // Reload the page
-        location.reload();
+        //add this back in when issue is solved
+        //location.reload();
       });
     });
   });
