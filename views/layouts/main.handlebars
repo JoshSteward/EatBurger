@@ -5,30 +5,11 @@
 		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
         <script src="https://code.jquery.com/jquery.js"></script>
 		<title>Eat The Burger!</title>
-        <script src="eatBurger/public/assets/js/burgers.js"></script>
+        <script src="/assets/js/burgers.js"></script>
 
 
 	</head>
 	<body>
 		{{{ body }}}
-            <script>
-                $("#submitBurger").on("click", function(event) {
-				event.preventDefault();
-				var burger = {
-					name: $("#burger").val().trim()
-				}
-				console.log(burger)
-				$.post("/api/burgers", burger, function(data) {
-					console.log(data);
-					location.reload();
-				})
-			});
-			$(".devour").on("click", function(event) {
-				event.preventDefault();
-				var id = $(this).data("id")
-				$.ajax({url: "api/burgers/" + id, method: "PUT"}).then(function(data) {
-					console.log(data);
-					location.reload();
-            </script>
 	</body>
 </html>
