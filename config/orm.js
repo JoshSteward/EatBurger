@@ -49,7 +49,7 @@ const orm = {
         });
     },
     insertOne(tableInput, colInput, burger_name, cb) {
-        const queryString = 'INSERT INTO ??(??) VALUES (??)';
+        const queryString = 'INSERT INTO ??(??) VALUES (?)';
         connection.query(queryString, [tableInput, colInput, burger_name], (err,res) => {
             if (err) {
                 throw err;
@@ -58,7 +58,7 @@ const orm = {
         });
     },
     updateOne(table, objColVals, updatedBurger, id, cb){
-        const queryString = 'UPDATE ?? SET ?? = ? WHERE ??';
+        const queryString = 'UPDATE ?? SET ?? = ? WHERE id = ?';
         connection.query(queryString, [table, objColVals, updatedBurger, id], (err,res) => {
             if (err) {
                 throw err;
